@@ -1,0 +1,24 @@
+<table class='table'>
+  <thead>
+    <th><%= Spree.t(:credited) %></th>
+    <th><%= Spree.t(:used) %></th>
+    <th><%= Spree.t(:issued_on) %></th>
+    <th><%= Spree.t(:expiration) %></th>
+  <thead>
+  <tbody>
+    <% spree_current_user.store_credits.each do |store_credit| %>
+      <tr>
+        <td><%= store_credit.display_amount.to_html %></td>
+        <td><%= store_credit.display_amount_used.to_html %></td>
+        <td><%= l store_credit.created_at.to_date %></td>
+        <td>
+          <% if store_credit.expires_at.present? %>
+            <%= l store_credit.expires_at.to_date %>
+          <% else %>
+            NA
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
