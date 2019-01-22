@@ -20,4 +20,6 @@ config = Rails.application.config
 config.spree.calculators.shipping_methods << Spree::Calculator::Shipping::ApiCalculator
 Rails.application.config.spree.promotions.rules << Spree::Promotion::Rules::NoOnSaleVariantRule
 
+Spree::PermittedAttributes.store_credit_attributes << :expires_at
+
 Spree.user_class = "Spree::User"
