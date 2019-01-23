@@ -12,6 +12,10 @@ module Spree
         response['price']
       end
 
+      def is_api_calculator?
+        true
+      end
+
     end
   end
 end

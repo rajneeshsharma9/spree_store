@@ -3,7 +3,7 @@ Spree::Stock::Estimator.class_eval do
   def calculate_shipping_rates(package, ui_filter)
     api_cost = nil
     shipping_methods(package, ui_filter).map do |shipping_method|
-      if is_api_calculator?(shipping_method.calculator)
+      if shipping_method.calculator.is_api_calculator?
         cost = (api_cost ||= shipping_method.calculator.compute(package))
       else
         cost = shipping_method.calculator.compute(package)
@@ -14,10 +14,6 @@ Spree::Stock::Estimator.class_eval do
         tax_rate: first_tax_rate_for(shipping_method.tax_category)
       )
     end.compact
-  end
-
-  private def is_api_calculator?(calculator)
-    calculator.class.name.split('::').last == "ApiCalculator"
   end
 
 end
