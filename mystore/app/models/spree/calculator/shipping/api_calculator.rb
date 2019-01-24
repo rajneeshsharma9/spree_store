@@ -7,8 +7,8 @@ module Spree
       end
 
       def compute_package(package)
-        headers = { "api-token" => "iw-kVcmVYRXg_Ps6UcwmdA" }
-        response = HTTParty.get("http://localhost:1234/api/deals/shipping_amount", headers: headers)
+        headers = { "api-token" => Spree::Config[:shipment_api_key] }
+        response = HTTParty.get(Spree::Config[:shipment_api_url], headers: headers)
         response['price']
       end
 
