@@ -37,6 +37,7 @@ en:
         name: "No on sale variant"
         description: "No on sale variant present in order"
 
-    shipment_api_key: 'Shipment API key'
-    shipment_api_settings: 'Shipment API Settings'
-    shipment_api_url: 'Shipement API URL'
+    admin:
+      shipment_api_key: 'Shipment API key'
+      shipment_api_settings: 'Shipment API Settings'
+      shipment_api_url: 'Shipement API URL'
