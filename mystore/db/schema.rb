@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_22_115358) do
+ActiveRecord::Schema.define(version: 2019_01_24_130715) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -479,6 +479,13 @@ ActiveRecord::Schema.define(version: 2019_01_22_115358) do
     t.integer "quantity", default: 1
     t.index ["promotion_action_id"], name: "index_spree_promotion_action_line_items_on_promotion_action_id"
     t.index ["variant_id"], name: "index_spree_promotion_action_line_items_on_variant_id"
+  end
+
+  create_table "spree_promotion_action_products", force: :cascade do |t|
+    t.integer "promotion_action_id"
+    t.integer "product_id"
+    t.index ["product_id"], name: "index_spree_promotion_action_products_on_product_id"
+    t.index ["promotion_action_id"], name: "index_spree_promotion_action_products_on_promotion_action_id"
   end
 
   create_table "spree_promotion_actions", force: :cascade do |t|

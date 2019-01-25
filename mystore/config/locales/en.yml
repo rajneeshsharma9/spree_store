@@ -37,6 +37,11 @@ en:
         name: "No on sale variant"
         description: "No on sale variant present in order"
 
+    promotion_action_types:
+      create_product_adjustments:
+        name: Create product adjustments
+        description: Creates a promotion credit adjustment on line items of specified products.
+
     admin:
       shipment_api_key: 'Shipment API key'
       shipment_api_settings: 'Shipment API Settings'

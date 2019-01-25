@@ -23,3 +23,5 @@ Rails.application.config.spree.promotions.rules << Spree::Promotion::Rules::NoOn
 Spree::PermittedAttributes.store_credit_attributes << :expires_at
 
 Spree.user_class = "Spree::User"
+
+Rails.application.config.spree.promotions.actions << Spree::Promotion::Actions::CreateProductAdjustments
