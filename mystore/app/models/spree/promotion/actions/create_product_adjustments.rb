@@ -8,6 +8,8 @@ module Spree
         has_many :promotion_action_products, foreign_key: :promotion_action_id
         has_many :products, through: :promotion_action_products
 
+        validates :products, presence: true, on: :update
+
         before_validation -> { self.calculator ||= Calculator::PercentOnLineItem.new }
 
         def perform(options = {})
