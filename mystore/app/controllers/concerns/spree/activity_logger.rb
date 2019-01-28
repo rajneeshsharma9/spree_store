@@ -11,6 +11,7 @@ module Spree
       original_request_params = request.params
       yield
       unless request.get?
+        byebug
         Spree::UserActivityLog.create(
           user: try_spree_current_user,
           ip_address: request.remote_ip,
@@ -19,7 +20,7 @@ module Spree
           updated_request_params: params,
           flash: flash.to_h,
           entity_name: entity_name,
-          entity_errors: @object&.errors.to_h
+          entity_errors: @object&.errors.to_h.to_json
         )
       end
     end
