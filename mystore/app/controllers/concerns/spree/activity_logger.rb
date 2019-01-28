@@ -11,16 +11,15 @@ module Spree
       original_request_params = request.params
       yield
       unless request.get?
-        byebug
         Spree::UserActivityLog.create(
           user: try_spree_current_user,
           ip_address: request.remote_ip,
           response_code: response.status,
           original_request_params: original_request_params,
           updated_request_params: params,
-          flash: flash.to_h,
+          flash: HashWithIndifferentAccess.new(flash),
           entity_name: entity_name,
-          entity_errors: @object&.errors.to_h.to_json
+          entity_errors: HashWithIndifferentAccess.new(@object&.errors)
         )
       end
     end
