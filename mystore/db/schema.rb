@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_24_130715) do
+ActiveRecord::Schema.define(version: 2019_01_28_065726) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -1023,6 +1023,20 @@ ActiveRecord::Schema.define(version: 2019_01_24_130715) do
     t.datetime "updated_at", null: false
     t.integer "engine", default: 0, null: false
     t.index ["active"], name: "index_spree_trackers_on_active"
+  end
+
+  create_table "spree_user_activity_logs", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "original_request_params"
+    t.text "updated_request_params"
+    t.text "flash"
+    t.string "entity_name"
+    t.integer "response_code"
+    t.text "entity_errors"
+    t.string "ip_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_spree_user_activity_logs_on_user_id"
   end
 
   create_table "spree_users", force: :cascade do |t|

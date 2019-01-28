@@ -29,3 +29,10 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore DS_store files
+.DS_Store
+
+# Ignore db schema
+/db/schema.rb
+/config/database.yml
