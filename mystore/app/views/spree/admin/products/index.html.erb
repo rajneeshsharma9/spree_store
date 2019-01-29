@@ -24,10 +24,32 @@
             <%= f.text_field :variants_including_master_sku_cont, size: 15, class: "form-control" %>
           </div>
         </div>
-        <div class="col-xs-12 col-md-6">
-          <%= f.label :available_on_gteq, 'Available from' %>
-          <%= f.text_field :available_on_gteq, class: 'datepicker form-control' %>
+
+        <div class="date-range-filter col-xs-12 col-md-8">
+          <div class="form-group">
+            <%= label_tag :q_available_on_gteq, 'Available on range' %>
+            <div class="row no-padding-bottom">
+              <div class="col-xs-12 col-md-6">
+                <div class="input-group">
+                  <%= f.text_field :available_on_gteq, class: 'datepicker datepicker-from form-control js-filterable', value: params[:q][:available_on_gteq], placeholder: Spree.t(:start) %>
+                  <span class="input-group-addon">
+                    <i class="icon icon-calendar"></i>
+                  </span>
+                </div>
+
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <div class="input-group">
+                  <%= f.text_field :available_on_lteq, class: 'datepicker datepicker-to form-control js-filterable', value: params[:q][:available_on_lteq], placeholder: Spree.t(:stop) %>
+                  <span class="input-group-addon">
+                    <i class="icon icon-calendar"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
         <div class="col-xs-12 col-md-12">
           <div class="field checkbox">
             <label>
