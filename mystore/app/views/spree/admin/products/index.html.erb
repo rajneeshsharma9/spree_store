@@ -6,6 +6,8 @@
   <%= button_link_to Spree.t(:new_product), new_object_url, { class: "btn-success", icon: 'add', id: 'admin_new_product' } %>
 <% end if can?(:create, Spree::Product) %>
 
+<%= page_entries_info @collection, entry_name: 'product' %>
+
 <% content_for :table_filter do %>
   <div data-hook="admin_products_sidebar">
 
@@ -25,28 +27,30 @@
           </div>
         </div>
 
-        <div class="date-range-filter col-xs-12 col-md-8">
+        <div class="date-range-filter col-xs-12 col-md-12">
           <div class="form-group">
-            <%= label_tag :q_available_on_gteq, 'Available on range' %>
             <div class="row no-padding-bottom">
               <div class="col-xs-12 col-md-6">
                 <div class="input-group">
+                  <%= f.label :available_on_gteq, 'Available on from' %>
                   <%= f.text_field :available_on_gteq, class: 'datepicker datepicker-from form-control js-filterable', value: params[:q][:available_on_gteq], placeholder: Spree.t(:start) %>
-                  <span class="input-group-addon">
-                    <i class="icon icon-calendar"></i>
-                  </span>
                 </div>
 
               </div>
               <div class="col-xs-12 col-md-6">
                 <div class="input-group">
+                  <%= f.label :available_on_lteq, 'Available on till' %>
                   <%= f.text_field :available_on_lteq, class: 'datepicker datepicker-to form-control js-filterable', value: params[:q][:available_on_lteq], placeholder: Spree.t(:stop) %>
-                  <span class="input-group-addon">
-                    <i class="icon icon-calendar"></i>
-                  </span>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-md-12">
+          <div class="form-group">
+            <%= f.label :promotionable_eq, 'Promotable' %>
+            <%= f.select(:promotionable_eq, [['Promotable', true],['Not promotable', false]], { include_blank: 'Both' }, { class: 'select2' }) %>
           </div>
         </div>
 
@@ -63,11 +67,6 @@
               <%= f.check_box :not_discontinued, {checked: params[:q][:not_discontinued] == '0'}, '0', '1' %>
               <%= Spree.t(:show_discontinued ) %>
             </label>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :promotionable_eq, 'Promotable' %>
-            <%= f.select(:promotionable_eq, [['Promotable', true],['Not promotable', false]], { include_blank: 'Both' }, { class: 'select2' }) %>
           </div>
 
         </div>
