@@ -7,17 +7,15 @@ module Spree
 
         def compute_amount(line_item)
           return 0 unless promotion.line_item_actionable?(line_item.order, line_item)
-          if line_item.variant.on_sale?
-            if !compare_with_sale_price?
-              return 0
-            elsif compare_with_sale_price? && sale_price_better_deal?(line_item)
-              return 0
-            else
-              [line_item.amount, compute(line_item)].min * -1
-            end
+          if compare_with_sale_price? && sale_price_better_deal?(line_item)
+            return 0
           else
-            [line_item.amount, compute(line_item)].min * -1
+            default_discount(line_item)
           end
+        end
+
+        private def default_discount(line_item)
+          [line_item.amount, compute(line_item)].min * -1
         end
 
         private def compare_with_sale_price?
