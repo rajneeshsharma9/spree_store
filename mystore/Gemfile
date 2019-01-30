@@ -31,6 +31,7 @@ gem 'spree_i18n', github: 'spree-contrib/spree_i18n', branch: 'master'
 gem 'spree_simple_sales', path: '../spree_simple_sales'
 gem 'spree_gift_card', github: 'vinsol-spree-contrib/spree_gift_card'
 gem 'spree_address_auto_complete', git: 'https://github.com/vinsol-spree-contrib/spree_address_auto_complete', branch: 'master'
+gem 'spree_buy_m_get_n', github: 'vinsol-spree-contrib/spree_buy_m_get_n'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

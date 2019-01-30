@@ -13,3 +13,4 @@
 //= require spree/backend/spree_simple_sales
 //= require spree/backend/spree_gift_card
 //= require spree/backend/spree_address_auto_complete
+//= require spree/backend/spree_buy_m_get_n
