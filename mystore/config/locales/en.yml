@@ -36,11 +36,18 @@ en:
       no_on_sale_variant_rule:
         name: "No on sale variant"
         description: "No on sale variant present in order"
+      minimum_order_item_count:
+        name: "Minimum Order Item Count"
+        description: "Order contains specified minimum item count"
 
     promotion_action_types:
       create_product_adjustments:
         name: Create product adjustments
         description: Creates a promotion credit adjustment on line items of specified products.
+
+      create_minimum_price_line_item_adjustment:
+        name: Create minimum priced line item adjustment
+        description: Create adjustment for minimum priced line item.
 
     admin:
       shipment_api_key: 'Shipment API key'
