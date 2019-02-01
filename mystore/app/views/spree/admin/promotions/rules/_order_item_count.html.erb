@@ -1,0 +1,10 @@
+<div class="panel-body">
+  <div class="form-group no-marginb">
+    <%= label_tag 'Criteria' %>
+    <%= select_tag("#{param_prefix}[preferred_criteria]", options_for_select(Spree::Promotion::Rules::OrderItemCount::CRITERIA_VALUES.map{ |c| ["#{c.humanize}", c] }, promotion_rule.preferred_criteria), {class: 'select_product form-control'}) %>
+  </div>
+  <div class="form-group no-marginb">
+    <%= label_tag 'Item Count (n)' %>
+    <%= text_field_tag "#{param_prefix}[preferred_quantity]", promotion_rule.preferred_quantity, class: 'form-control marginb preferred_quantity' %>
+  </div>
+</div>

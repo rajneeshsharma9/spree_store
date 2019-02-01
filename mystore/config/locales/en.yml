@@ -36,9 +36,10 @@ en:
       no_on_sale_variant_rule:
         name: "No on sale variant"
         description: "No on sale variant present in order"
-      minimum_order_item_count:
-        name: "Minimum Order Item Count"
-        description: "Order contains specified minimum item count"
+
+      order_item_count:
+        name: "Order Item Count"
+        description: "Order contains item count satisfying specified criteria"
 
     promotion_action_types:
       create_product_adjustments:
