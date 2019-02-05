@@ -37,12 +37,27 @@ en:
         name: "No on sale variant"
         description: "No on sale variant present in order"
 
+      order_item_count:
+        name: "Order Item Count"
+        description: "Order contains item count satisfying specified criteria"
+
     promotion_action_types:
       create_product_adjustments:
         name: Create product adjustments
         description: Creates a promotion credit adjustment on line items of specified products.
 
+      create_minimum_price_line_item_adjustment:
+        name: Create minimum priced line item adjustment
+        description: Create adjustment for minimum priced line item.
+
     admin:
       shipment_api_key: 'Shipment API key'
       shipment_api_settings: 'Shipment API Settings'
       shipment_api_url: 'Shipement API URL'
+
+    eligibility_errors:
+      messages:
+        not_equal_to_item_count: This coupon code can't be applied to orders with item count not equal to %{count}
+        not_less_than_item_count: This coupon code can't be applied to orders with item count greater than %{count}
+        not_greater_than_item_count: This coupon code can't be applied to orders with item count less than %{count}
+

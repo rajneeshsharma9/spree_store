@@ -19,9 +19,12 @@ end
 config = Rails.application.config
 config.spree.calculators.shipping_methods << Spree::Calculator::Shipping::ApiCalculator
 Rails.application.config.spree.promotions.rules << Spree::Promotion::Rules::NoOnSaleVariantRule
+Rails.application.config.spree.promotions.rules << Spree::Promotion::Rules::OrderItemCount
 
 Spree::PermittedAttributes.store_credit_attributes << :expires_at
 
 Spree.user_class = "Spree::User"
 
 Rails.application.config.spree.promotions.actions << Spree::Promotion::Actions::CreateProductAdjustments
+Rails.application.config.spree.promotions.actions << Spree::Promotion::Actions::CreateMinimumPriceLineItemAdjustment
+
