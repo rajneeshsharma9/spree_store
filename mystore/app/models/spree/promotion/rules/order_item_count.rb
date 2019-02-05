@@ -18,6 +18,7 @@ module Spree
 
         def eligible?(order, options = {})
           compare_entity_item_count(order)
+          eligibility_errors.empty?
         end
 
         def actionable?(line_item)
@@ -26,11 +27,11 @@ module Spree
 
         private def compare_entity_item_count(entity)
           if preferred_criteria == 'equal_to'
-            entity.item_count == preferred_quantity
+            eligibility_errors.add(:base, eligibility_error_message(:not_equal_to_item_count, count: preferred_quantity)) unless entity.item_count == preferred_quantity
           elsif preferred_criteria == 'less_than_or_equal_to'
-            entity.item_count <= preferred_quantity
+            eligibility_errors.add(:base, eligibility_error_message(:not_less_than_item_count, count: preferred_quantity)) unless entity.item_count <= preferred_quantity
           else
-            entity.item_count >= preferred_quantity
+            eligibility_errors.add(:base, eligibility_error_message(:not_greater_than_item_count, count: preferred_quantity)) unless entity.item_count >= preferred_quantity
           end
         end
 
