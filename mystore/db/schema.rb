@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_28_065726) do
+ActiveRecord::Schema.define(version: 2019_01_29_130058) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -493,6 +493,7 @@ ActiveRecord::Schema.define(version: 2019_01_28_065726) do
     t.integer "position"
     t.string "type"
     t.datetime "deleted_at"
+    t.text "preferences"
     t.index ["deleted_at"], name: "index_spree_promotion_actions_on_deleted_at"
     t.index ["id", "type"], name: "index_spree_promotion_actions_on_id_and_type"
     t.index ["promotion_id"], name: "index_spree_promotion_actions_on_promotion_id"
